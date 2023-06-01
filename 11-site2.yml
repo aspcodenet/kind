@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: site2
+  namespace: yatest
+  labels:
+    app: site2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: site2
+  template:
+    metadata:
+      labels:
+        app: site2
+    spec:
+      containers:
+        - name: site2
+          image: yeasy/simple-web
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: yatest
+  name: site2-service
+  labels:
+    app: site2
+spec:
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: site2
+  sessionAffinity: None

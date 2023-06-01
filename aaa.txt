@@ -1,0 +1,42 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://54afd361-19ad-467d-b431-738fd048d856.k8s.ondigitalocean.com
+  name: do-lon1-k8s-1-20-2-do-0-lon1-1620910828558
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://kubernetes.docker.internal:6443
+  name: docker-desktop
+- cluster:
+    certificate-authority-data: DATA+OMITTED
+    server: https://127.0.0.1:54308
+  name: kind-kind
+contexts:
+- context:
+    cluster: do-lon1-k8s-1-20-2-do-0-lon1-1620910828558
+    user: do-lon1-k8s-1-20-2-do-0-lon1-1620910828558-admin
+  name: do-lon1-k8s-1-20-2-do-0-lon1-1620910828558
+- context:
+    cluster: docker-desktop
+    user: docker-desktop
+  name: docker-desktop
+- context:
+    cluster: kind-kind
+    user: kind-kind
+  name: kind-kind
+current-context: kind-kind
+kind: Config
+preferences: {}
+users:
+- name: do-lon1-k8s-1-20-2-do-0-lon1-1620910828558-admin
+  user:
+    token: REDACTED
+- name: docker-desktop
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED
+- name: kind-kind
+  user:
+    client-certificate-data: REDACTED
+    client-key-data: REDACTED

@@ -1,0 +1,5 @@
+ kubectl --context kind-kind -n kubernetes-dashboard create token admin-user
+
+kubectl --context kind-kind proxy
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/login
+
