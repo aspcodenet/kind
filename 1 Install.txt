@@ -1,6 +1,6 @@
-install : go install sigs.k8s.io/kind@v0.20.0
+install : go install sigs.k8s.io/@latest
 
-kind create cluster --config .\threenodecluster.yaml
+kind create cluster --config .\threenodecluster.yaml 
 
 # I alla anrop kör kubectl  --context kind-kind
 
